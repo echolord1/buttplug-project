@@ -1,0 +1,25 @@
+Serial:
+  protocol_type: lovense
+  port: COM3 # Your serial port
+  baud_rate: 115200 # Communication speed
+  data_bits: 8
+  parity: N
+  stop_bits: 1
+
+Gateway:
+  host: 127.0.0.1
+  port: 12345
+  log_sensor_reads: true # Hide frequent battery/RSSI requests
+
+Device:
+  name: Lovense Device
+  index: 0
+  timing_gap: 100
+  vibration_steps: 20
+  vibration_command: "Vibrate:{level};\n"
+  vibration_timeout_ms: 2000 # 2s safety timeout
+  enable_startup_test: true
+
+Theme:
+  color1: "#EE82EE"
+  color2: "#FF1493"
