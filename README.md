@@ -39,15 +39,15 @@ To install or upgrade PlatformIO Core, follow these steps:
 - **Configure Firmware**: Edit `PlatformIO/config.cfg` to set your initial serial and server parameters for the ESP32.
 - **Configure Gateway**: Edit `config.yaml` in the root directory. Ensure the `Serial: port` matches your ESP32-CAM COM port.
 
-![ESP32-CAM Hardware](file:///c:/Users/echol/OneDrive/Documentos/GitHub/buttplug-project/doc/images/esp32-cam-mb.png)
+![ESP32-CAM Hardware](doc/images/esp32-cam-mb.png)
 
 > [!NOTE]
 > This project was successfully tested and verified using the **ESP32-CAM-MB** model shown above (featuring built-in **WiFi and Bluetooth**).
 
 - **USB Driver (Windows 11)**: Ensure you have the `USB-SERIAL CH340 v3.7.2022.1` driver installed.
 
-  ![CH340 Driver](file:///c:/Users/echol/OneDrive/Documentos/GitHub/buttplug-project/doc/images/drive%20USB-SERIAL%20CH340%20v3.7.2022.1.png)
-  ![Driver Property](file:///c:/Users/echol/OneDrive/Documentos/GitHub/buttplug-project/doc/images/drive%20property.png)
+  ![CH340 Driver](doc/images/driver-ch340.png)
+  ![Driver Property](doc/images/driver-property.png)
 
 ### 2. Firmware Installation
 
@@ -65,10 +65,10 @@ To install or upgrade PlatformIO Core, follow these steps:
 
 #### Step-by-Step Installation Screenshots:
 
-![Install 1](file:///c:/Users/echol/OneDrive/Documentos/GitHub/buttplug-project/doc/images/install-1.png)
-![Install 2](file:///c:/Users/echol/OneDrive/Documentos/GitHub/buttplug-project/doc/images/install-2.png)
-![Install 3](file:///c:/Users/echol/OneDrive/Documentos/GitHub/buttplug-project/doc/images/install-3.png)
-![Install 4](file:///c:/Users/echol/OneDrive/Documentos/GitHub/buttplug-project/doc/images/install-4.png)
+![Install 1](doc/images/install-1.png)
+![Install 2](doc/images/install-2.png)
+![Install 3](doc/images/install-3.png)
+![Install 4](doc/images/install-4.png)
 
 ### 3. Connection Test (Manual Verification)
 
@@ -89,7 +89,7 @@ If the toy vibrates correctly, your serial-to-Bluetooth bridge is ready.
    ```
 2. **Success Confirmation**: When the gateway connects to the ESP32, the toy will **vibrate briefly**. This confirms the software and hardware are talking.
 
-![Gateway Success](file:///c:/Users/echol/OneDrive/Documentos/GitHub/buttplug-project/doc/images/gateway.png)
+![Gateway Success](doc/images/gateway.png)
 
 ### 5. Game Integration (Simulated or Real)
 
@@ -99,7 +99,7 @@ For a quick test without launching a real game, you can use our built-in simulat
 uv run python test/simulated_game.py
 ```
 
-![Simulated Game Success](file:///c:/Users/echol/OneDrive/Documentos/GitHub/buttplug-project/doc/images/simulated_game.png)
+![Simulated Game Success](doc/images/simulated_game.png)
 This script will:
 
 - Connect to your Gateway via WebSocket.
@@ -117,7 +117,7 @@ Our comprehensive testing has confirmed the following successes:
 3.  **Protocol Emulation**: Confirmed that the Python Gateway correctly emulates a Buttplug.io server, allowing external clients to discover and control the device.
 4.  **Game Simulation**: The `simulated_game.py` test (as shown above) successfully performs the handshake and sends complex haptic events like the new **"Punch" Combat Pattern**.
 
-![Music Vibes Integration](file:///c:/Users/echol/OneDrive/Documentos/GitHub/buttplug-project/doc/images/music-vibes.png)
+![Music Vibes Integration](doc/images/music-vibes.png)
 _Example of successful haptic integration using the [Music Vibes](https://github.com/Shadlock0133/music-vibes/releases) software._
 
 ---
