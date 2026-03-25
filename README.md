@@ -15,7 +15,24 @@ graph LR
 
 ## 🚀 Setup and Verification Flow
 
-This project uses [uv](https://docs.astral.sh/uv/) for dependency and environment management.
+This project uses [uv](https://docs.astral.sh/uv/) for dependency management and **PlatformIO** for firmware flashing.
+
+### 0. Install PlatformIO Core (Manual Method)
+
+To install or upgrade PlatformIO Core, follow these steps:
+
+1. **Download**: Save the [get-platformio.py](https://raw.githubusercontent.com/platformio/platformio-core-installer/master/get-platformio.py) script.
+2. **Navigate**: Open terminal and go to the folder where you saved it:
+   ```powershell
+   # Change to the download folder
+   cd C:/path-to-dir/where/get-platformio.py/is-located
+   ```
+3. **Run**: Execute the installer:
+   ```powershell
+   python.exe get-platformio.py
+   ```
+   > [!TIP]
+   > For more details, see the [Official PlatformIO Installation Guide](https://docs.platformio.org/en/latest/core/installation/methods/installer-script.html).
 
 ### 1. Preparation
 
@@ -23,10 +40,12 @@ This project uses [uv](https://docs.astral.sh/uv/) for dependency and environmen
 - **Configure Gateway**: Edit `config.yaml` in the root directory. Ensure the `Serial: port` matches your ESP32-CAM COM port.
 
 ![ESP32-CAM Hardware](file:///c:/Users/echol/OneDrive/Documentos/GitHub/buttplug-project/doc/images/esp32-cam-mb.png)
+
 > [!NOTE]
 > This project was successfully tested and verified using the **ESP32-CAM-MB** model shown above (featuring built-in **WiFi and Bluetooth**).
+
 - **USB Driver (Windows 11)**: Ensure you have the `USB-SERIAL CH340 v3.7.2022.1` driver installed.
-  
+
   ![CH340 Driver](file:///c:/Users/echol/OneDrive/Documentos/GitHub/buttplug-project/doc/images/drive%20USB-SERIAL%20CH340%20v3.7.2022.1.png)
   ![Driver Property](file:///c:/Users/echol/OneDrive/Documentos/GitHub/buttplug-project/doc/images/drive%20property.png)
 
@@ -34,15 +53,18 @@ This project uses [uv](https://docs.astral.sh/uv/) for dependency and environmen
 
 1. Connect your **ESP32-CAM** to your PC.
 2. Turn on your **Bluetooth Toy** (it must be on before the next steps).
-3. Install the PlatformIO tools and upload the firmware:
-
-```powershell
-uv sync
-cd PlatformIO
-uv run pio run -e esp32cam -t upload
-```
+3. **Setup Environment**: Install project dependencies using `uv`:
+   ```powershell
+   uv sync
+   ```
+4. **Upload Firmware**: Navigate to the PlatformIO directory and flash the device:
+   ```powershell
+   cd PlatformIO
+   uv run pio run -e esp32cam -t upload
+   ```
 
 #### Step-by-Step Installation Screenshots:
+
 ![Install 1](file:///c:/Users/echol/OneDrive/Documentos/GitHub/buttplug-project/doc/images/install-1.png)
 ![Install 2](file:///c:/Users/echol/OneDrive/Documentos/GitHub/buttplug-project/doc/images/install-2.png)
 ![Install 3](file:///c:/Users/echol/OneDrive/Documentos/GitHub/buttplug-project/doc/images/install-3.png)
@@ -72,17 +94,19 @@ If the toy vibrates correctly, your serial-to-Bluetooth bridge is ready.
 ### 5. Game Integration (Simulated or Real)
 
 For a quick test without launching a real game, you can use our built-in simulator:
+
 ```powershell
 uv run python test/simulated_game.py
 ```
 
 ![Simulated Game Success](file:///c:/Users/echol/OneDrive/Documentos/GitHub/buttplug-project/doc/images/simulated_game.png)
 This script will:
+
 - Connect to your Gateway via WebSocket.
 - Perform the Buttplug handshake.
 - Send random combat-like vibration events.
 
-Alternatively, connect your real game (Femboy Survival, etc.) following the standard [Buttplug.io](https://buttplug.io) interface.
+Alternatively, connect your real game [List of compatible games](https://github.com/buttplugio/awesome-buttplug?tab=readme-ov-file#games), following the standard [Buttplug.io](https://buttplug.io) interface.
 
 ## ✅ Verified Test Results
 

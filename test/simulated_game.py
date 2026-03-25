@@ -3,6 +3,27 @@ import json
 import websockets
 import random
 import time
+import os
+import yaml
+
+def load_config():
+    """Load configuration from the root directory."""
+    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    config_path = os.path.join(base_dir, "config.yaml")
+    
+    if os.path.exists(config_path):
+        try:
+            with open(config_path, 'r') as f:
+                return yaml.safe_load(f) or {}
+        except Exception as e:
+            print(f"Warning: Could not parse config.yaml: {e}")
+    return {}
+
+config = load_config()
+gateway_cfg = config.get("Gateway", {})
+DEFAULT_HOST = gateway_cfg.get("host", "127.0.0.1")
+DEFAULT_PORT = gateway_cfg.get("port", 12345)
+DEFAULT_URI = f"ws://{DEFAULT_HOST}:{DEFAULT_PORT}"
 
 async def send_vibration(websocket, level, device_index=0, msg_id=100):
     """Helper to send a ScalarCmd vibration level."""
@@ -69,7 +90,7 @@ async def event_ambient(websocket, device_index):
     await asyncio.sleep(0.5)
 
 async def simulate_game():
-    uri = "ws://127.0.0.1:12345"
+    uri = DEFAULT_URI
     print(f"🎮 Connecting to Gateway at {uri}...")
     
     try:

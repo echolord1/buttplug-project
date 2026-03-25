@@ -112,7 +112,7 @@ async def main():
     server_port = gateway_cfg.get("port", 12345)
     
     print(f"📡 Starting Buttplug Gateway Server on ws://{server_host}:{server_port}")
-    print(f"👉 To use with games, set the server address to: 127.0.0.1:{server_port}")
+    print(f"👉 To use with games, set the server address to: {server_host}:{server_port}")
     print("\n[TIP] Press Ctrl+C to stop the gateway (vibrations will stop automatically).")
     print("Waiting for clients...\n")
 
