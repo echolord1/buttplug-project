@@ -1,6 +1,16 @@
 # ⚡ Buttplug Project: Buttplug.io Serial Gateway ⚡
 
-This project is a Python-based Buttplug.io (v3) protocol gateway that connects serial devices (like the ESP32-CAM) directly to games and Buttplug clients, eliminating the need for Intiface Central.
+## 📖 About this Project
+
+The primary goal of this project is to solve a common compatibility issue: many affordable haptic toys use generic **Bluetooth Low Energy (BLE)** protocols that are not natively recognized by the Windows/Linux Bluetooth stacks or by middleware like **Intiface Central**.
+
+This solution bridges that gap by:
+
+1.  **Emulating** a well-known Buttplug.io protocol on your PC.
+2.  **Communicating via Serial** with an **ESP32-CAM** (or similar hardware).
+3.  The ESP32 then handles the direct **Bluetooth communication** with the toy.
+
+This enables "unsupported" or "generic" hardware to work seamlessly with any game or application compatible with the standard [Buttplug.io](https://buttplug.io) interface.
 
 - **Python Version**: Recommended `3.12.13` (managed via `uv`)
 
@@ -103,7 +113,7 @@ uv run python test/simulated_game.py
 This script will:
 
 - Connect to your Gateway via WebSocket.
-- Perform the Buttplug handshake.
+- Perform the Toy handshake.
 - Send random combat-like vibration events.
 
 Alternatively, connect your real game [List of compatible games](https://github.com/buttplugio/awesome-buttplug?tab=readme-ov-file#games), following the standard [Buttplug.io](https://buttplug.io) interface.
@@ -128,7 +138,7 @@ _Example of successful haptic integration using the [Music Vibes](https://github
   1. Connect **ESP32** via USB.
   2. Start the **Python Gateway** (`uv run python main.py`).
   3. Launch the **Game**.
-- **Reconnecting**: If you restart the Python Gateway for any reason, you **must close and reopen the game** to re-establish the Buttplug handshake.
+- **Reconnecting**: If you restart the Python Gateway for any reason, you **must close and reopen the game** to re-establish the Buttplug.io handshake.
 - **Stopping**: To safely shut down the gateway, press `Ctrl+C` in the terminal. This will automatically send a stop signal to your hardware.
 
 ## 🛡️ Safety (Watchdog)
