@@ -85,7 +85,7 @@ To install or upgrade PlatformIO Core, follow these steps:
   <br><br>
   <img src="doc/images/install-2.png" alt="Install 2" width="600" />
   <br><br>
-  <img src="doc/images/install-3.png" alt="Install 3" width="600" />
+  <img src="doc/images/install-3.png" alt="Install 3" width="60'0" />
   <br><br>
   <img src="doc/images/install-4.png" alt="Install 4" width="600" />
 </p>
